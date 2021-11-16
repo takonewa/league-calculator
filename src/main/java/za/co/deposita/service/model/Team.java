@@ -38,7 +38,11 @@ public class Team implements Comparable<Team> {
     @Override
     public int compareTo(Team other) {
         if (getTotalPoints().equals(other.getTotalPoints())) {
-            return (getTotalGoalDifference().compareTo(other.getTotalGoalDifference()));
+            if (getTotalGoalDifference().equals(other.getTotalGoalDifference())) {
+                return (getTotalGoalForward().compareTo(other.getTotalGoalForward()));
+            } else {
+                return (getTotalGoalDifference().compareTo(other.getTotalGoalDifference()));
+            }
         } else {
             return (getTotalPoints().compareTo(other.getTotalPoints()));
         }
